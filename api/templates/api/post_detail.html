@@ -17,8 +17,8 @@
                 {{ post.published_date }}
             </time>
         {% endif %}
-        <h2>Title: {{ post.title }}</h2>
-        <p>Content: {{ post.content|linebreaksbr }}</p>
+        <h2>{{ post.title }}</h2>
+        <h3>{{ post.content|linebreaksbr }}</h3>
         <p>Hash code: {{ post.hash|linebreaksbr }}</p>
     </article>
 {% endblock %}
