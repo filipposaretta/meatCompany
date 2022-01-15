@@ -222,6 +222,7 @@ def search(request):
     if request.method == 'GET':
         query = request.GET.get('q')
         submitbutton = request.GET.get('submit')
+        error = False
         #if the query is not empty
         if query is not None:
             lookups= Q(lot__icontains=query) | Q(id_code__icontains=query)
@@ -231,7 +232,6 @@ def search(request):
                 transition_hash = hashlib.sha256(transition.encode('utf-8')).hexdigest()
             except IndexError:
                 transition_hash = "Search not found"
-            error = False
             trans_txId = ""
             if request.user.is_authenticated:
                 if Wal.objects.count() > 0:  #if there are wallets
