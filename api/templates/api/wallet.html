@@ -1,0 +1,16 @@
+{% extends 'api/base_lot.html' %}
+
+{% block content %}
+     <h2>New wallet</h2>
+     {% if messages %}
+         <ul class="messages">
+             {% for message in messages %}
+                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+             {% endfor %}
+         </ul>
+     {% endif %}
+     <form method="POST" class="post-form">{% csrf_token %}
+         {{ wal.as_p }}
+         <button type="submit" class="save btn btn-default">Save</button>
+     </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'api/base_lot.html' %}
+
+{% block content %}
+    <article class="lot">
+        <aside class="actions">
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'lot_edit' pk=lot.pk %}">
+                    {% include './icons/pencil-fill.svg' %}
+                </a>
+                <a class="btn btn-default" href="{% url 'lot_remove' pk=lot.pk %}"><span class="glyphicon glyphicon-remove"></span>
+                    {% include './icons/trash.svg' %}
+                </a>
+            {% endif %}
+        </aside>
+        {% if lot.published_date %}
+            <time class="date">
+                {{ lot.published_date }}
+            </time>
+        {% endif %}
+        <h2>Lot: {{ lot.lot }}</h2>
+        <p>Id: {{ lot.id_code|linebreaksbr }}</p>
+        <p>Description: {{ lot.description|linebreaksbr }}</p>
+    </article>
+{% endblock %}

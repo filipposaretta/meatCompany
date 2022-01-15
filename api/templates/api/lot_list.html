@@ -1,0 +1,13 @@
+{% extends 'api/base_lot.html' %}
+
+{% block content %}
+    {% for lot in lots %}
+        <article class="lot">
+            <time class="date">
+                {{ lot.published_date }}
+            </time>
+            <h2><a href="{% url 'lot_detail' pk=lot.pk %}">{{ lot.lot }}</a></h2>
+            <p>{{ lot.description|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}

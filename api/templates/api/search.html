@@ -1,0 +1,35 @@
+{% extends 'api/base.html' %}
+
+{% block content %}
+
+    <h1>Search Page</h1>
+
+    <br/>
+    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+        Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search posts"/>
+        <input type="submit" name="submit" value="Search"/>
+    </form>
+
+    {% if submitbutton == 'Search' and request.GET.q != '' %}
+        {% if results %}
+            <h2>Results for <b>{{ request.GET.q }}</b></h2>
+            <br/>
+            <hr width="100%" color="#C25100">
+            {% for result in results %}
+                <h3>Lot number : {{ result.lot }}</h3>
+                <br/>
+                <h4>id code : {{ result.id_code }}</h4>
+                <br/>
+                <p>Description</p>{{ result.description }}
+                <br/>
+                {% if not error %}
+                    <p>Transition: </p>{{ trans_txId }}
+                    <br/>
+                {% endif %}
+                <hr width="100%" color="#C25100">
+            {% endfor %}
+        {% else %}
+            No search results for this query
+        {% endif %}
+    {% endif %}
+{% endblock %}
