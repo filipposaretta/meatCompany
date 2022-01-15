@@ -13,7 +13,7 @@
     {% if submitbutton == 'Search' and request.GET.q != '' %}
         {% if results %}
             <h4>Results for <b>{{ request.GET.q }}</b></h4>
-            <hr width="100%" color="#C25100">
+            <hr width="100%" color="#4a90f1">
             {% for result in results %}
                 <h3>Lot number : {{ result.lot }}</h3>
                 <br/>
@@ -26,7 +26,7 @@
                     <h3>Transition: </h3>{{ trans_txId }}
                     <br/>
                 {% endif %}
-                <hr width="100%" color="#C25100">
+                <hr width="100%" color="#4a90f1">
             {% endfor %}
         {% else %}
             No search results for this query
