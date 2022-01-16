@@ -2,7 +2,7 @@ A synthetyc meat company website!
 
 Dear friends,
 
-this is my first DJango projects.
+this is my first DJango project.
 
 I have created a blog and a website where you can search some product details, where you can login and where you can do a lot of beautiful things!
 
